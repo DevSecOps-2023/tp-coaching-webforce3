@@ -48,12 +48,50 @@ drwxr-xr-x 3 root   root    4096 Feb 23 22:20 ./
 drwxrwxr-x 5 ubuntu ubuntu  4096 Feb 23 22:31 ../
 drwx------ 2 root   root   16384 Feb 23 22:20 lost+found/
 
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
-#if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
-#    . /etc/bash_completion
-#fi
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
 
 
-FLASK_APP=blogs
+
+alias python='python3'
+
+export FLASK_APP=blogs
+
+
+
+root@coaching-11:/home/ubuntu/tp-coaching-webforce3# sudo ufw deny 5000
+Rule updated
+Rule updated (v6)
+root@coaching-11:/home/ubuntu/tp-coaching-webforce3# sudo ufw allow  30101
+Rule added
+Rule added (v6)
+root@coaching-11:/home/ubuntu/tp-coaching-webforce3# sudo ufw status
+Status: active
+
+To                         Action      From
+--                         ------      ----
+5000                       DENY        Anywhere
+22/tcp                     ALLOW       Anywhere
+30101                      ALLOW       Anywhere
+5000 (v6)                  DENY        Anywhere (v6)
+22/tcp (v6)                ALLOW       Anywhere (v6)
+30101 (v6)                 ALLOW       Anywhere (v6)
+
+
+root@coaching-11:/home/ubuntu/tp-coaching-webforce3# sudo ufw app list
+Available applications:
+  Apache
+  Apache Full
+  Apache Secure
+  OpenSSH
+
+
