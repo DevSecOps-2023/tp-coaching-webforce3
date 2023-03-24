@@ -1,0 +1,24 @@
+# Utilisation de l'image de base Ubuntu
+FROM ubuntu:latest
+
+# Installation des paquets nécessaires
+RUN apt-get update && apt-get install -y \
+    python3 \
+    python3-pip \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Définition du répertoire de travail
+WORKDIR /app
+
+# Copie des fichiers de l'application dans le conteneur
+COPY . /app
+
+# Installation des dépendances Python
+RUN pip3 install -r requirements.txt
+
+# Exposition du port 5000 pour l'application Flask
+EXPOSE 5000
+
+# Commande pour lancer l'application Flask
+CMD ["python3", "app.py"]
