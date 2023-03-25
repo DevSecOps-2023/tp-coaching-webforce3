@@ -1,0 +1,20 @@
+# Utilise une image Alpine Linux comme base
+FROM alpine:latest
+
+# Mettre à jour les paquets disponibles dans l'image
+RUN apk update && apk upgrade && apk add --no-cache python3-dev build-base
+
+# Créer un dossier pour l'application
+WORKDIR /app
+
+# Copier les fichiers de l'application dans le conteneur
+COPY . /app
+
+# Installer les dépendances
+RUN pip3 install --no-cache-dir -r requirements.txt
+
+# Exposer le port sur lequel l'application écoute
+EXPOSE 5000
+
+# Lancer l'application
+CMD ["python3", "app.py"]
