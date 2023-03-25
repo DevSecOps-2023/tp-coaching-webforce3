@@ -38,6 +38,17 @@ Formattez ce disque au format ext4
 Monter (mount) ce disque sur le point montage /home/ubuntu/tp-coaching-webforce3/log
 
 
+sudo fdisk -l
+
+Disk /dev/sdb: 10 GiB, 10737418240 bytes, 20971520 sectors
+Disk model: PersistentDisk  
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 4096 bytes
+I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+
+sudo mount /dev/sdb /home/djamal/tp-coaching-webforce3/log
+
+
 ## Exercice 4  - Git/Github 
 Dans PyCharm allez dans File->Settings->Version control->github  
 Appuyer sur la croix, en haut a gauche de cette fenetre et selectionnez log in with token.   
