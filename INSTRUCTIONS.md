@@ -89,12 +89,20 @@ de votre user ubuntu
 Lancer le web server avec la commande ```flask run --host=0.0.0.0 -p 30101```  
 Vérifier avec votre navigateur en utilisant l'url ```http://<ip_de_votre_vm>:30101/blogs```    
 Vérifier que le fichier record.log existe bien dans la directory log    
+python3 --version
+sudo apt-get install python3
+sudo apt-get install python3-pip
+sudo pip3 install flask
+python3 blogs.py
 
 
 ## Exercice 6  - Pare-feu  
 Trouvez la commande de gestion du firewall sous ubuntu 20.04
 Exemple : fermer le port 5000 et autoriser le port 30101
 Vérifier l'application Web sur ces ports
+sudo ufw deny 5000
+sudo ufw allow 30101
+http://<votre_adresse_ip>:30101
 
 
 # TP sur Docker
